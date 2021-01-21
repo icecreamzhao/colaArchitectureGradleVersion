@@ -1,0 +1,3 @@
+com/littleboy/manager/domain/DeviceEntityTest.java
+ com.littleboy.manager.domain.DeviceEntityTest
+ com.littleboy.manager.domain.DeviceEntityTest$DeviceGatewayImpl

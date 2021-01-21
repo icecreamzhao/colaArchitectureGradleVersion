@@ -1,0 +1,12 @@
+/**
+ * file_manager_client
+ * 包括了对外开放的api和dto
+ */
+
+archivesBaseName = 'file_manager_client'
+
+dependencies {
+    api 'io.springfox:springfox-boot-starter'
+}
+
+jar.enabled = true

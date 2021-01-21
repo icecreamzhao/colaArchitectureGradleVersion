@@ -1,0 +1,12 @@
+com/littleboy/manager/device/DeviceDO.java
+ com.littleboy.manager.device.DeviceDO
+com/littleboy/manager/device/DeviceTypeDO.java
+ com.littleboy.manager.device.DeviceTypeDO
+com/littleboy/manager/config/SwaggerConfig.java
+ com.littleboy.manager.config.SwaggerConfig
+com/littleboy/manager/device/gatewayImpl/DeviceGatewayImpl.java
+ com.littleboy.manager.device.gatewayImpl.DeviceGatewayImpl
+com/littleboy/manager/device/mapper/DeviceMapper.java
+ com.littleboy.manager.device.mapper.DeviceMapper
+com/littleboy/manager/config/MybatisConfig.java
+ com.littleboy.manager.config.MybatisConfig

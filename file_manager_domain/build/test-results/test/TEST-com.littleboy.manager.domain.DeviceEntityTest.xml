@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.littleboy.manager.domain.DeviceEntityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-21T08:02:48" hostname="SURFACE-BOOK-2" time="0.016">
+  <properties/>
+  <testcase name="testDeviceGateway" classname="com.littleboy.manager.domain.DeviceEntityTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

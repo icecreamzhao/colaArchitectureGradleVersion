@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.6/616105b0831250a2e443447508e6a8b26bc466fb/lombok-1.18.6.jar" />
+        </processorPath>
+        <module name="my_whole_manager.file_manager_app.main" />
+        <module name="my_whole_manager.file_manager_domain.main" />
+        <module name="my_whole_manager.file_manager_adapter.main" />
+        <module name="my_whole_manager.file_manager_start.main" />
+        <module name="my_whole_manager.file_manager_client.main" />
+        <module name="my_whole_manager.file_manager_infrastructure.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="my_whole_manager.file_manager_parent" target="1.8" />
+      <module name="my_whole_manager.file_manager_parent.main" target="1.8" />
+      <module name="my_whole_manager.file_manager_parent.test" target="1.8" />
+      <module name="my_whole_manager.file_manager_service" target="1.8" />
+      <module name="my_whole_manager.file_manager_service.main" target="1.8" />
+      <module name="my_whole_manager.file_manager_service.test" target="1.8" />
+      <module name="my_whole_manager.file_manager_service_sys.main" target="1.8" />
+      <module name="my_whole_manager.file_manager_service_sys.test" target="1.8" />
+      <module name="my_whole_manager.main" target="1.8" />
+      <module name="my_whole_manager.manager_common" target="1.8" />
+      <module name="my_whole_manager.manager_common.main" target="1.8" />
+      <module name="my_whole_manager.manager_common.test" target="1.8" />
+      <module name="my_whole_manager.manager_security" target="1.8" />
+      <module name="my_whole_manager.manager_security.main" target="1.8" />
+      <module name="my_whole_manager.manager_security.test" target="1.8" />
+      <module name="my_whole_manager.manager_user_authorize" target="1.8" />
+      <module name="my_whole_manager.manager_user_authorize.main" target="1.8" />
+      <module name="my_whole_manager.manager_user_authorize.test" target="1.8" />
+      <module name="my_whole_manager.test" target="1.8" />
+      <module name="my_whole_manager.UserAuthorize.main" target="1.8" />
+      <module name="my_whole_manager.UserAuthorize.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

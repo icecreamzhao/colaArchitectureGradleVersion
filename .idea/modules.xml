@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UserAuthorize/my_whole_manager.UserAuthorize.main.iml" filepath="$PROJECT_DIR$/.idea/modules/UserAuthorize/my_whole_manager.UserAuthorize.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UserAuthorize/my_whole_manager.UserAuthorize.test.iml" filepath="$PROJECT_DIR$/.idea/modules/UserAuthorize/my_whole_manager.UserAuthorize.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/file_manager_service_sys/my_whole_manager.file_manager_service_sys.main.iml" filepath="$PROJECT_DIR$/.idea/modules/file_manager_service_sys/my_whole_manager.file_manager_service_sys.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/file_manager_service_sys/my_whole_manager.file_manager_service_sys.test.iml" filepath="$PROJECT_DIR$/.idea/modules/file_manager_service_sys/my_whole_manager.file_manager_service_sys.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/my_whole_manager.main.iml" filepath="$PROJECT_DIR$/.idea/modules/my_whole_manager.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/my_whole_manager.test.iml" filepath="$PROJECT_DIR$/.idea/modules/my_whole_manager.test.iml" />
+    </modules>
+  </component>
+</project>

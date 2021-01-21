@@ -1,0 +1,2 @@
+com/littleboy/manager/Application.java
+ com.littleboy.manager.Application

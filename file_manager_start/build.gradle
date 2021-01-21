@@ -1,0 +1,11 @@
+/**
+ * file_manager 的启动层
+ */
+
+archivesBaseName = 'file_manager_start'
+
+dependencies {
+    implementation project(':file_manager_adapter')
+
+    runtime 'com.h2database:h2'
+}

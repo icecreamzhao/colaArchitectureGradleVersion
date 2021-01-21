@@ -1,0 +1,12 @@
+/**
+ * 文件管理的adapter层, 负责对前端展示的路由和适配
+ */
+
+archivesBaseName = 'file_manager_adapter'
+
+dependencies {
+    api project(':file_manager_app')
+    api 'org.springframework.boot:spring-boot-starter-web'
+}
+
+jar.enabled = true

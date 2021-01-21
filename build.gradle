@@ -1,0 +1,143 @@
+/**
+ * 关于根目录下的 build.gradle:
+ * 可以声明的资源包括依赖项、第三方插件、maven仓库地址等
+ * buildscript 中的声明是gradle脚本自身需要使用的资源
+ * gradle在执行脚本时，会优先执行buildscript代码块中的内容，然后才会执行剩余的build脚本。
+ */
+
+/**
+ * 关于buildscript中的 dependencies 模块:
+ * 如果你想在脚本中使用一些第三方的插件、类库等，
+ * 需要自己手动添加对这些插件、类库的 引用。而这些插件、类库不是直接服务于项目的，而是支持其它build脚本的运行。
+ * 所以你应当将这部分的引用放置在buildscript代码块中。
+ */
+buildscript {
+    // 存储库
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+
+    ext {
+        //定义一个变量，统一规定springboot的版本
+        springBootVersion = '2.2.5.RELEASE'
+    }
+
+    // 依赖
+    dependencies {
+        /* 添加插件依赖路径（通过jar方式） */
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}" as Object)
+    }
+}
+
+// 所有项目的配置
+allprojects {
+    group 'com.littleboy'
+    version '1.0'
+
+    ext {
+        //定义一个变量，统一规定springboot的版本
+        springBootVersion = '2.2.5.RELEASE'
+        springCloudVersion = 'Hoxton.SR3'
+        springCloudAlibabaVersion = '2.2.0.RELEASE'
+        mybatisVersion = '3.3.1'
+
+        // 工具依赖版本
+        redisVersion = '2.9.0'
+        gsonVersion = '2.8.2'
+        lombokVersion = '1.18.6'
+        jwtVersion = '0.9.0'
+        swagger3Version = '3.0.0'
+        knife4jVersion = '1.9.6'
+        hutoolVersion = '4.5.0'
+        h2Version = '1.4.197'
+        junitVersion = '4.13'
+    }
+}
+
+// 对所有Child Project的配置(不包含父模块本身)
+subprojects {
+
+    // 存储库
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+        google()
+    }
+    /* 使用二进制插件 */
+    /* java是Gradle的核心插件，是内置的，内置插件不需要配置依赖路径 */
+    apply plugin: 'java'
+    /* 同上  让Gradle自动生成Intellij的项目文件*/
+    apply plugin: 'idea'
+    /* 注意gradle插件不再自动应用，所以这里需要指定 */
+    apply plugin: 'org.springframework.boot'
+    /* 依赖管理插件仍然是一个spring-boot-gradle-plugin传递依赖，所以无需在build.gradle配置中明确列出此依赖。 */
+    /* 依赖管理，用来传递spring的依赖 */
+    apply plugin: 'io.spring.dependency-management'
+
+    apply plugin: 'java-library'
+
+    /* java编译的时候缺省状态下会因为中文字符而失败 */
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+    /* 用于处理注解处理器的依赖配置, lombok就是注解用的依赖 */
+    dependencies {
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        testImplementation "junit:junit:${junitVersion}"
+    }
+
+    // 依赖管理, 是'io.spring.dependency-management'的功能
+    dependencyManagement {
+        // 声明单个的依赖, 将版本号规定好, 子项目引入的时候就可以方便管理版本了
+        dependencies {
+            // 工具依赖
+            dependency group: 'redis.clients', name: 'jedis', version: "${redisVersion}"
+            dependency group: 'com.google.code.gson', name: 'gson', version: "${gsonVersion}"
+            dependency group: 'org.projectlombok', name: 'lombok', version: "${lombokVersion}"
+            dependency group: 'io.jsonwebtoken', name: 'jjwt', version: "${jwtVersion}"
+            dependency group: 'io.springfox', name: 'springfox-boot-starter', version: "${swagger3Version}"
+
+            // project modules
+            dependencySet(group: 'com.littleboy.manager', version: '${project.version}') {
+                entry 'file_manager_adapter'
+                entry 'file_manager_app'
+                entry 'file_manager_client'
+                entry 'file_manager_domain'
+                entry 'file_manager_infrastructure'
+                entry 'file_manager_start'
+            }
+
+            // 微服务版本(不包含前端UI的jar)
+            dependencySet(group: 'com.github.xiaoymin', version: '${knife4jVersion}') {
+                entry 'knife4j-micro-spring-boot-starter'
+                entry 'knife4j-spring-boot-starter'
+            }
+
+            dependency group: 'cn.hutool', name: 'hutool-all', version: "${hutoolVersion}"
+
+            // mybatis
+            dependency group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: "${mybatisVersion}"
+            // h2
+            dependency group: 'com.h2database', name: 'h2', version: "${h2Version}"
+        }
+        // 引入已经有的pom文件, 相当于 include
+        imports {
+            //spring bom helps us to declare dependencies without specifying version numbers.
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
+}
+

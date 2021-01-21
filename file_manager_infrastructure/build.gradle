@@ -1,0 +1,19 @@
+/**
+ * file_manager 的 infrastructure 层, 主要负责技术细节问题的处理，
+ * 比如数据库的CRUD、搜索引擎、文件系统、分布式服务的RPC等。此外，
+ * 领域防腐的重任也落在这里，外部依赖需要通过gateway的转义处理，
+ * 才能被上面的App层和Domain层使用。
+ */
+
+archivesBaseName = 'file_manager_infrastructure'
+
+dependencies {
+    api project(':file_manager_domain')
+
+    api 'org.springframework.boot:spring-boot-starter-aop'
+    api 'com.baomidou:mybatis-plus-boot-starter'
+    runtime 'mysql:mysql-connector-java'
+    runtime 'com.h2database:h2'
+}
+
+jar.enabled = true

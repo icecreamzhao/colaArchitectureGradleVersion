@@ -1,0 +1,17 @@
+rootProject.name = 'my_whole_manager'
+
+// file_manager
+include 'file_manager_adapter'
+include 'file_manager_app'
+include 'file_manager_domain'
+include 'file_manager_infrastructure'
+include 'file_manager_client'
+include 'file_manager_start'
+
+// file_manager_adapter -> file_manager_app
+// file_manager_app -> file_manager_client
+// file_manager_app -> file_manager_infrastructure
+// file_manager_infrastructure -> file_manager_domain
+// file_manager_domain -> file_manager_client
+
+// client: adapter app domain infrastructure
